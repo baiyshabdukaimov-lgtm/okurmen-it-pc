@@ -10,9 +10,15 @@ export function LanguageProvider({ children }) {
   useEffect(() => {
     localStorage.setItem('okurmen-language', language)
     document.documentElement.lang = language === 'KG' ? 'ky' : 'ru'
-    translateRenderedPage(language)
-    const timer = window.setTimeout(() => translateRenderedPage(language), 0)
-    return () => window.clearTimeout(timer)
+    let timer
+    const apply = () => {
+      window.clearTimeout(timer)
+      timer = window.setTimeout(() => translateRenderedPage(language), 0)
+    }
+    apply()
+    const observer = new MutationObserver(apply)
+    observer.observe(document.body, { childList: true, subtree: true })
+    return () => { window.clearTimeout(timer); observer.disconnect() }
   }, [language])
   const value = useMemo(() => ({ language, setLanguage }), [language])
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>

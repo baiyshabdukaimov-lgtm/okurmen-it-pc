@@ -88,6 +88,7 @@ img, svg { max-width: 100%; }
 .theme-dark .store-section .page-intro h1, .theme-dark .store-section .builder h2 { color: #f9fdff; }
 .theme-dark .store-section .page-intro p { color: #d7e4e9; }
 .theme-dark .product-info p, .theme-dark .product-type-float, .theme-dark .back-link { color: #c3d8df; font-weight: 600; }
+.back-link { cursor: pointer; transition: color .2s ease, transform .2s ease; }.back-link:hover { color: var(--cyan); transform: translateX(-3px); }
 .theme-dark .spec-list span { color: #f1fbff; font-weight: 600; }
 @media (max-width: 850px) {
 	.nav-inner { width: calc(100% - 32px); gap: 10px; }
