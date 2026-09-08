@@ -49,7 +49,7 @@ const parts = {
 const partLabels = { processor: ['Процессор', Cpu], motherboard: ['Материнская плата', Router], gpu: ['Видеокарта', Gamepad2], ram: ['Оперативная память', Layers3], storage: ['Накопитель', HardDrive], case: ['Корпус', Package] }
 const money = value => `${value.toLocaleString('ru-RU')} сом`
 
-function Logo({ showPartner = true }) { return <div className="brand-lockup"><Link className="logo" to="/"><span className="logo-mark"><Zap size={19} fill="currentColor" /></span><span className="logo-name">Okurmen_Store</span><b className="logo-brand">IT-PC</b></Link><span className="brand-divider" aria-hidden="true" /><img className="official-logo" src="/okurmen-it-logo.svg" alt="ОКУРМЭН ОКУУ БОРБОРУ" />{showPartner && <small className="partner-badge">Официальный партнер Okurmen IT</small>}</div> }
+function Logo({ showPartner = true }) { return <div className="brand-lockup"><Link className="logo" to="/"><span className="logo-mark"><Zap size={19} fill="currentColor" /></span><span className="logo-name">Okurmen_Store</span><b className="logo-brand">IT-PC</b></Link><span className="brand-divider" aria-hidden="true" /><img className="official-logo w-9 h-9 rounded-full object-cover shrink-0 bg-white" src="/okurmen-it-logo.png" alt="ОКУРМЭН ОКУУ БОРБОРУ" />{showPartner && <small className="partner-badge">Официальный партнер Okurmen IT</small>}</div> }
 function Navbar() {
   const [open, setOpen] = useState(false)
   const { language, setLanguage } = useLanguage()
