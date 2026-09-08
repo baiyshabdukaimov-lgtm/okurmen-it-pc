@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useLocation, useSearchParams } from 'react-router-dom'
 import { ArrowRight, Banknote, Check, CreditCard, LoaderCircle, ShieldCheck, ShoppingCart, WalletCards, X } from 'lucide-react'
 import { ADDRESS_RU } from './i18n'
 import { formatPhone, isCompletePhone, PHONE_PREFIX } from './phone'
@@ -24,8 +24,9 @@ function OrderOptions() {
 
 export default function ExamPayment() {
   const [searchParams] = useSearchParams()
-  const initialProduct = searchParams.get('product') || ''
-  const initialAmount = Number(searchParams.get('amount') || 0)
+  const { state } = useLocation()
+  const initialProduct = searchParams.get('product') || state?.selectedProduct?.name || ''
+  const initialAmount = Number(searchParams.get('amount') || state?.selectedProduct?.price || 0)
   const [order, setOrder] = useState(initialProduct)
   const [method, setMethod] = useState('card')
   const [bank, setBank] = useState('')

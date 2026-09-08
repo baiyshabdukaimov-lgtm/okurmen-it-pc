@@ -88,7 +88,7 @@ img, svg { max-width: 100%; }
 .theme-dark .store-section .page-intro h1, .theme-dark .store-section .builder h2 { color: #f9fdff; }
 .theme-dark .store-section .page-intro p { color: #d7e4e9; }
 .theme-dark .product-info p, .theme-dark .product-type-float, .theme-dark .back-link { color: #c3d8df; font-weight: 600; }
-.back-link { cursor: pointer; transition: color .2s ease, transform .2s ease; }.back-link:hover { color: var(--cyan); transform: translateX(-3px); }
+.store-section::before { pointer-events:none; }.product-page > * { position:relative; z-index:1; }.back-link { position:relative; z-index:2; cursor:pointer; transition:color .2s ease,transform .2s ease; }.back-link:hover { color:var(--cyan); text-decoration:underline; transform:translateX(-3px); }.detail-buy-button { position:relative; z-index:2; pointer-events:auto; }
 .theme-dark .spec-list span { color: #f1fbff; font-weight: 600; }
 @media (max-width: 850px) {
 	.nav-inner { width: calc(100% - 32px); gap: 10px; }
@@ -140,8 +140,8 @@ img, svg { max-width: 100%; }
 .theme-dark .logo { min-width: 0; flex: 1 1 auto; overflow: hidden; }
 .theme-dark .logo-name { color: #fff; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .theme-dark .logo-brand { color: #ff6b00; flex: 0 0 auto; }
-.partner-badge { display: inline-flex; align-items: center; max-width: 190px; margin-left: 8px; padding: 4px 7px; border: 1px solid #35515f; border-radius: 4px; color: #b9ced5; font: 700 8px/1.15 'DM Mono'; white-space: normal; }
-.brand-lockup { display:flex; align-items:center; min-width:0; gap:10px; }.brand-lockup .logo { flex:0 1 auto; }.brand-lockup .logo-mark,.official-logo { width:38px; height:38px; flex:0 0 38px; }.brand-divider { width:1px; height:28px; background:#35515f; flex:0 0 auto; }.official-logo { object-fit:contain; }
+.nav-inner { min-height:76px; align-items:center; gap:24px; }.nav-links { align-items:center; gap:24px; min-height:40px; }.nav-links a { display:inline-flex; align-items:center; min-height:40px; line-height:1; white-space:nowrap; }.nav-actions { align-items:center; gap:12px; min-height:40px; }.language-toggle,.register-link,.profile-link,.logout-button { display:inline-flex; align-items:center; justify-content:center; min-height:34px; }.partner-badge { display:inline-flex; align-items:center; min-height:26px; padding:5px 9px; border:1px solid #4a6875; border-radius:999px; background:#17313c; color:#f0fbff; font:700 9px/1 'DM Mono'; white-space:nowrap; }.brand-lockup { display:flex; align-items:center; gap:10px; min-width:0; }.brand-lockup .logo { flex:0 0 auto; }.brand-lockup .logo-mark,.official-logo { width:38px; height:38px; flex:0 0 38px; }.brand-divider { width:1px; height:28px; background:#35515f; flex:0 0 auto; }.official-logo { display:block; object-fit:contain; background:#fff; border-radius:50%; filter:none !important; mix-blend-mode:normal; }
+.footer { min-height:auto; padding:0; }.footer-inner { width:min(1180px,calc(100% - 48px)); min-height:78px; margin:auto; display:grid; grid-template-columns:auto minmax(240px,1fr) auto; align-items:center; gap:28px; }.footer-note { text-align:center; line-height:1.45; }.footer-links { display:flex; align-items:center; justify-content:flex-end; gap:24px; white-space:nowrap; }
 .payment-total { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: -3px 0 18px; padding: 14px 15px; border: 1px solid #ff6b00; border-radius: 4px; background: #172a34; color: #d7e4e9; font-size: 12px; font-weight: 700; }
 .payment-total strong { color: #ff9b5c; font: 800 21px 'Space Grotesk'; white-space: nowrap; }
 .theme-dark .nav-actions { flex: 0 1 auto; flex-wrap: nowrap; min-width: 0; }
@@ -155,7 +155,7 @@ img, svg { max-width: 100%; }
 	.theme-dark .nav-actions { gap: 5px; }
 	.theme-dark .logo { max-width: 170px; }
 	.partner-badge { display: none; }
-	.brand-lockup { gap:6px; }.brand-divider { height:24px; }.brand-lockup .logo-mark,.official-logo { width:32px; height:32px; flex-basis:32px; }.brand-lockup .logo { max-width:150px; }
+	.brand-lockup { gap:6px; }.brand-divider { height:24px; }.brand-lockup .logo-mark,.official-logo { width:32px; height:32px; flex-basis:32px; }.brand-lockup .logo { max-width:150px; }.footer-inner { width:calc(100% - 32px); grid-template-columns:1fr; justify-items:start; gap:14px; padding:20px 0; }.footer-note { text-align:left; }.footer-links { justify-content:flex-start; gap:14px; flex-wrap:wrap; }
 	.payment-total { align-items: flex-start; flex-direction: column; gap: 4px; }
 }
 .language-toggle { display:flex; align-items:center; gap:2px; padding:3px; border:1px solid #dfe5e7; border-radius:999px; background:#f4f7f7; }
@@ -208,4 +208,28 @@ html.dark, html.dark body { background: #08121d; color: #f5fbff; }
 	.theme-dark .nav-actions { gap: 5px; }
 	.theme-dark .nav-links.open { left: 12px; right: 12px; max-width: calc(100vw - 24px); }
 	.theme-dark .register-link { display: none; }
+}
+
+/* Keep the store name intact: it is a brand label, not truncatable UI text. */
+.theme-dark .brand-lockup { flex:0 0 auto; min-width:max-content; }
+.theme-dark .brand-lockup .logo { flex:0 0 auto; min-width:max-content; max-width:none; overflow:visible; }
+.theme-dark .logo-name { min-width:max-content; overflow:visible; text-overflow:clip; white-space:nowrap; }
+
+@media (max-width: 1100px) {
+	.theme-dark .nav-inner { gap:16px; }
+	.theme-dark .nav-links { gap:16px; }
+	.theme-dark .nav-actions { gap:8px; }
+	.partner-badge { display:none; }
+}
+
+@media (max-width: 520px) {
+	.theme-dark .brand-lockup { gap:5px; }
+	.theme-dark .brand-lockup .logo { max-width:none; font-size:13px; gap:6px; }
+	.theme-dark .logo-name { max-width:none; }
+	.theme-dark .brand-divider { display:block; margin-inline:1px; }
+	.theme-dark .primary-btn.small { display:none; }
+}
+
+@media (max-width: 390px) {
+	.theme-dark .language-toggle { display:none; }
 }
