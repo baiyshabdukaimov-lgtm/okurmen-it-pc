@@ -28,7 +28,7 @@ const banks = [
 ]
 
 function Logo() {
-  return <a className="logo" href="#top"><span className="logo-mark"><Zap size={19} fill="currentColor" /></span><span>Okurmen <b>IT-PC</b></span></a>
+  return <a className="logo" href="#top"><span className="logo-mark"><Zap size={19} fill="currentColor" /></span><span>Okurmen_Store <b>IT-PC</b></span></a>
 }
 
 function Navbar({ onAuth }) {
@@ -76,7 +76,7 @@ function AuthModal({ mode, onClose, onSwitch }) {
 
 function App() {
   const [authMode, setAuthMode] = useState(null)
-  return <div className="app"><Navbar onAuth={setAuthMode} /><main><Hero onAuth={setAuthMode} /><Courses /><Payment /><Store /><Contacts /></main><footer className="footer"><Logo /><span>© 2024 Okurmen IT-PC. Бишкек, KG</span><div><a href="#courses">Курсы</a><a href="#store">Магазин</a><a href="#contacts">Связаться</a></div></footer>{authMode && <AuthModal mode={authMode} onClose={() => setAuthMode(null)} onSwitch={setAuthMode} />}</div>
+  return <div className="app"><Navbar onAuth={setAuthMode} /><main><Hero onAuth={setAuthMode} /><Courses /><Payment /><Store /><Contacts /></main><footer className="footer"><Logo /><span>© 2024 Okurmen_Store. Бишкек, KG</span><div><a href="#courses">Курсы</a><a href="#store">Магазин</a><a href="#contacts">Связаться</a></div></footer>{authMode && <AuthModal mode={authMode} onClose={() => setAuthMode(null)} onSwitch={setAuthMode} />}</div>
 }
 
 export default Site

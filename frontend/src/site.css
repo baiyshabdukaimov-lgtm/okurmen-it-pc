@@ -140,6 +140,9 @@ img, svg { max-width: 100%; }
 .theme-dark .logo { min-width: 0; flex: 1 1 auto; overflow: hidden; }
 .theme-dark .logo-name { color: #fff; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .theme-dark .logo-brand { color: #ff6b00; flex: 0 0 auto; }
+.partner-badge { display: inline-flex; align-items: center; max-width: 190px; margin-left: 8px; padding: 4px 7px; border: 1px solid #35515f; border-radius: 4px; color: #b9ced5; font: 700 8px/1.15 'DM Mono'; white-space: normal; }
+.payment-total { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: -3px 0 18px; padding: 14px 15px; border: 1px solid #ff6b00; border-radius: 4px; background: #172a34; color: #d7e4e9; font-size: 12px; font-weight: 700; }
+.payment-total strong { color: #ff9b5c; font: 800 21px 'Space Grotesk'; white-space: nowrap; }
 .theme-dark .nav-actions { flex: 0 1 auto; flex-wrap: nowrap; min-width: 0; }
 .theme-dark .language-toggle, .theme-dark .profile-link, .theme-dark .primary-btn.small, .theme-dark .mobile-menu { flex: 0 0 auto; }
 @media (max-width: 850px) {
@@ -150,6 +153,8 @@ img, svg { max-width: 100%; }
 	.theme-dark .nav-inner { padding-inline: 12px; gap: 6px; }
 	.theme-dark .nav-actions { gap: 5px; }
 	.theme-dark .logo { max-width: 170px; }
+	.partner-badge { display: none; }
+	.payment-total { align-items: flex-start; flex-direction: column; gap: 4px; }
 }
 .language-toggle { display:flex; align-items:center; gap:2px; padding:3px; border:1px solid #dfe5e7; border-radius:999px; background:#f4f7f7; }
 .language-toggle button { min-width:28px; padding:5px 6px; border-radius:999px; background:transparent; color:#66747a; font:700 9px 'DM Mono'; }
