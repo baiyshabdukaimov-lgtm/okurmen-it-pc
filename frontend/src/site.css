@@ -141,6 +141,7 @@ img, svg { max-width: 100%; }
 .theme-dark .logo-name { color: #fff; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .theme-dark .logo-brand { color: #ff6b00; flex: 0 0 auto; }
 .partner-badge { display: inline-flex; align-items: center; max-width: 190px; margin-left: 8px; padding: 4px 7px; border: 1px solid #35515f; border-radius: 4px; color: #b9ced5; font: 700 8px/1.15 'DM Mono'; white-space: normal; }
+.brand-lockup { display:flex; align-items:center; min-width:0; gap:10px; }.brand-lockup .logo { flex:0 1 auto; }.brand-lockup .logo-mark,.official-logo { width:38px; height:38px; flex:0 0 38px; }.brand-divider { width:1px; height:28px; background:#35515f; flex:0 0 auto; }.official-logo { object-fit:contain; }
 .payment-total { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: -3px 0 18px; padding: 14px 15px; border: 1px solid #ff6b00; border-radius: 4px; background: #172a34; color: #d7e4e9; font-size: 12px; font-weight: 700; }
 .payment-total strong { color: #ff9b5c; font: 800 21px 'Space Grotesk'; white-space: nowrap; }
 .theme-dark .nav-actions { flex: 0 1 auto; flex-wrap: nowrap; min-width: 0; }
@@ -154,6 +155,7 @@ img, svg { max-width: 100%; }
 	.theme-dark .nav-actions { gap: 5px; }
 	.theme-dark .logo { max-width: 170px; }
 	.partner-badge { display: none; }
+	.brand-lockup { gap:6px; }.brand-divider { height:24px; }.brand-lockup .logo-mark,.official-logo { width:32px; height:32px; flex-basis:32px; }.brand-lockup .logo { max-width:150px; }
 	.payment-total { align-items: flex-start; flex-direction: column; gap: 4px; }
 }
 .language-toggle { display:flex; align-items:center; gap:2px; padding:3px; border:1px solid #dfe5e7; border-radius:999px; background:#f4f7f7; }

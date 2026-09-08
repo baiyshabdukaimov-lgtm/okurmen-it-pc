@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { ArrowRight, Banknote, Check, CreditCard, LoaderCircle, ShieldCheck, ShoppingCart, WalletCards, X } from 'lucide-react'
 import { ADDRESS_RU } from './i18n'
 import { formatPhone, isCompletePhone, PHONE_PREFIX } from './phone'
@@ -22,7 +23,10 @@ function OrderOptions() {
 }
 
 export default function ExamPayment() {
-  const [order, setOrder] = useState('')
+  const [searchParams] = useSearchParams()
+  const initialProduct = searchParams.get('product') || ''
+  const initialAmount = Number(searchParams.get('amount') || 0)
+  const [order, setOrder] = useState(initialProduct)
   const [method, setMethod] = useState('card')
   const [bank, setBank] = useState('')
   const [name, setName] = useState('')
@@ -30,7 +34,7 @@ export default function ExamPayment() {
   const [errors, setErrors] = useState({})
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
-  const selectedOrder = [...laptopsAndPcs, ...courses].find(item => item.value === order)
+  const selectedOrder = [...laptopsAndPcs, ...courses].find(item => item.value === order) || (initialProduct && initialAmount ? { value: initialProduct, label: `${initialProduct} · ${initialAmount.toLocaleString('ru-RU')} сом`, amount: initialAmount } : null)
   const selectedBank = banks.find(item => item.name === bank)
   const qr = selectedBank ? `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(`Okurmen_Store|${selectedBank.name}|+996 708 436 331|Байыш.Б|${order}`)}` : ''
   const validate = () => {
